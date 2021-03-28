@@ -1,8 +1,6 @@
 // this app uses the JavaScript fetch() method to pull the Photo
 // of the day from the NASA public astronomy API.  The Photo
-// is then displayed in a simple web page. 
-
-"use strict"
+// is then displayed in a simple web page.
 
 window.onload = () => {
     nasaPhotoApi()
