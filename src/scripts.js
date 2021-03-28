@@ -22,5 +22,6 @@ showNasaPhotoData = (photo) => {
     document.getElementById('explanation').innerText = photo.explanation
     let image = document.createElement('img')
     image.setAttribute('src', photo.url)
-    document.body.appendChild(image)
+    image.setAttribute('alt', "NASA photo of the day")
+    document.body.appendChild(image).classList.add('img')
 }

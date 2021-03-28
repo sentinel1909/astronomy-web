@@ -1,1 +1,9 @@
+/* class to make the NASA image responsive */
 
+.img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+  height: auto;
+}
