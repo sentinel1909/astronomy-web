@@ -1,22 +1,22 @@
-// this app uses the JavaScript fetch() method to pull the Photo
-// of the day from the NASA public astronomy API.  The Photo
+// this app uses the JavaScript fetch() method to pull the photo (or video)
+// of the day from the NASA public astronomy API.  The photo (or video)
 // is then displayed in a simple web page.
 
 window.onload = () => {
     nasaPhotoApi();
 }
 
-// fetch() data, returns in JSON format
+// fetch() the data, returns in json format
 const nasaPhotoApi = () => {
-    fetch('https://api.nasa.gov/planetary/apod?api_key=lsULnkmChaJlS3fZO85M3cnGA8TFCAm2peEfd9QS')
-     .then((response) => {
-         return response.json()
-     }).then((data) => {
-         console.log(data)
-         if ( data.url.includes("youtube") ) {  // parse the url in the JSON data to see if it's a photo or video
-            showNasaVideo(data)
-         } else showNasaPhoto(data)
-     });
+    let url = 'https://api.nasa.gov/planetary/apod?api_key=lsULnkmChaJlS3fZO85M3cnGA8TFCAm2peEfd9QS';
+    fetch(url)
+        .then(response => response.json())
+        .then(apiData => {
+            console.log(apiData)
+            if ( apiData.url.includes("youtube") ) {    // check if it's a video, pass it to the video rendering function
+                showNasaVideo(apiData)
+            } else showNasaPhoto(apiData)   // if it's a photo, pass it to the photo rendering function
+        });
 }
 
 // display the photo in a web page
