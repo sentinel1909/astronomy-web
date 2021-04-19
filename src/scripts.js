@@ -12,14 +12,16 @@ const nasaPhotoApi = () => {
     fetch(url)
         .then(response => response.json())
         .then(apiData => {
-            console.log(apiData)
-            if ( apiData.url.includes("youtube") ) {    // check if it's a video, pass it to the video rendering function
-                showNasaVideo(apiData)
+            if ( apiData.url.includes("youtube") ) {    // check for the word "youtube" in the url that's returned from the api data
+                showNasaVideo(apiData)       // if the word "youtube" is there, it means there's video and needs to be rendered differently   
             } else showNasaPhoto(apiData)   // if it's a photo, pass it to the photo rendering function
+        })
+        .catch((error) => {                             // catch an error and log it to console if the NASA api is down
+            console.log("Could not load data today")
         });
 }
 
-// display the photo in a web page
+// display the date, title, explanation and photo in a web page
 const showNasaPhoto = (photo) => {
     document.getElementById('date').innerText = photo.date;
     document.getElementById('title').innerText = photo.title;
@@ -30,7 +32,7 @@ const showNasaPhoto = (photo) => {
     document.body.appendChild(imgFrame).classList.add('img');
 }
 
-// display the video in a web page
+// display the date, title, explanation and video in a web page
 const showNasaVideo = (video) => {
     document.getElementById('date').innerText = video.date;
     document.getElementById('title').innerText = video.title;
