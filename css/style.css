@@ -1,4 +1,17 @@
-/* class to make the NASA image responsive */
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
 
 .img {
   display: block;
