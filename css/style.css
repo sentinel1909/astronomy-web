@@ -7,9 +7,13 @@ html {
   box-sizing: inherit;
 }
 
+body {
+  font-family: 'Courier New';
+}
+
 .container {
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1920px;
   padding: 0 1rem;
 }
 
